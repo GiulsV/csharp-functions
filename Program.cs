@@ -93,3 +93,85 @@ StampaArray(arrayUtente);
 Console.WriteLine("Somma array: " + SommaElementiArray(arrayUtente));
 
 Console.WriteLine("Somma array al quadrato: " + SommaElementiArray(arrayQuadrato));
+
+//Esercizio Extra
+//Si chiede di implementare due funzioni che eseguano le corrsipettive funzioni matematiche:
+//1 - Fattoriale di un numero
+//2 - La sequenza di fibonacci di un numero
+
+//risolverle in modo RICORSIVO o anche in modo ITERATIVO (FOR)
+
+//1) il fattoriale di un numero può essere calcolato solo su numeri positivi:
+//0! = 1
+//1! = 1
+//2! = 2
+//3! = 6
+//4! = 24
+//5! = 120
+//N! = ???
+Console.WriteLine("Bonus");
+
+int FattorialeIterativo(int num) 
+{
+    int fattoriale;
+    fattoriale = 1;
+    for (int i = 1; i <= num; i++)
+        fattoriale = fattoriale * i;
+    return fattoriale;
+}
+Console.WriteLine("Fattoriale iterativo (5): " + FattorialeIterativo(5));
+
+int FattorialeRicorsivo(int n)
+{
+    if (n > 0)
+        return FattorialeRicorsivo(n - 1) * n;
+    else
+        return 1;
+}
+
+Console.WriteLine("Fattoriale ricorsivo (5): " + FattorialeRicorsivo(5) );
+
+//2) Fibonacci
+//n	Fn
+//0	 0
+//1	 1
+//2	 1
+//3	 2
+//4	 3
+//5	 5
+//6	 8
+//7	 13
+//8	 21
+//9	 34
+//10 55
+//fibonacci(10) = 55
+
+int FibonacciIterativo(int num)
+{
+    int number = 1;
+    int number2 = 1;
+    int fib = 0;
+
+    if (num == 0) 
+        return 0;
+    if (num == 1) 
+        return 1;
+    for (int i = 2; i < num; i++) {
+        fib = number + number2;
+        number = number2;
+        number2 = fib;   
+    }
+    return fib;
+}
+Console.WriteLine("Fibonacci iterativo (10): " + FibonacciIterativo(10));
+
+int FibonacciRicorsivo(int n)
+{
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return FibonacciRicorsivo(n - 1) + FibonacciRicorsivo(n - 2);
+}
+Console.WriteLine("Fibonacci ricorsivo (10): " + FibonacciRicorsivo(10));
